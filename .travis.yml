@@ -1,0 +1,14 @@
+rvm:
+  - 1.9.3
+  - 2.0.0
+branches:
+  only:
+    - master
+before_install:
+  - sudo apt-get update -y
+  - sudo apt-get install python-software-properties -y
+  - sudo add-apt-repository ppa:ubuntu-lxc/daily
+  - sudo apt-get update -y
+  - sudo apt-get install liblxc0 lxc lxc-dbg lxc-dev lxc-templates lxc-tests lxctl python3-lxc  -y 
+script:
+  - bundle exec rake clean package
